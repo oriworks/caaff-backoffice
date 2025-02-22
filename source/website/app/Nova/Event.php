@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Text;
@@ -57,6 +58,20 @@ class Event extends Resource
             Boolean::make('Página do evento', 'page_info'),
 
             Trix::make('Detalhes', 'schema_event'),
+
+            File::make('Regulamento', 'regulation')->disk('public'),
+            File::make('Formulário de Inscrição', 'subscriber_form')->disk('public'),
+            File::make('Inscritos', 'subscribers')->disk('public'),
+            File::make('Classificação', 'rating')->disk('public'),
+
+            Text::make('Titulo Doc 1', 'name_partial1'),
+            File::make('Doc 1', 'partial1')->disk('public'),
+
+            Text::make('Titulo Doc 2', 'name_partial2'),
+            File::make('Doc 2', 'partial2')->disk('public'),
+            
+            Text::make('Titulo Doc 3', 'name_partial3'),
+            File::make('Doc 3', 'partial3')->disk('public'),
         ];
     }
 
